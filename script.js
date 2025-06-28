@@ -16,17 +16,12 @@ function getElement(id) {
 async function loadData() {
   try {
     initTheme();
-    
     const [racesRes, skillsRes, armorRes] = await Promise.all([
-      fetch('data/races.json'),
-      fetch('data/skills.json'),
-      fetch('data/armor.json')
+      fetch('Data/races.json'),
+      fetch('Data/skills.json'),
+      fetch('Data/armor.json')
     ]);
-
-    if (!racesRes.ok || !skillsRes.ok || !armorRes.ok) {
-      throw new Error("Один из JSON-файлов не загрузился");
-    }
-
+    
     races = await racesRes.json();
     skills = await skillsRes.json();
     armor = await armorRes.json();
@@ -34,10 +29,8 @@ async function loadData() {
     initApp();
   } catch (error) {
     console.error("Ошибка загрузки данных:", error);
-    alert("Ошибка загрузки данных. Проверьте консоль для подробностей.");
   }
 }
-
 // Инициализация приложения
 function initApp() {
   const raceSelect = getElement('race');
