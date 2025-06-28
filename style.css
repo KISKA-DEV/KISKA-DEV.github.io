@@ -1,0 +1,829 @@
+/* Подключение шрифта */
+@font-face {
+  font-family: 'Pelagiad';
+  src: url('fonts/Pelagiad.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Для оптимизации загрузки */
+}
+
+/* Применение шрифта ко всему сайту */
+body {
+  font-family: 'Pelagiad', 'Times New Roman', serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+/* Особые настройки для заголовков */
+h1, h2, h3 {
+  font-weight: normal; /* Если шрифт не поддерживает жирное начертание */
+  letter-spacing: 0.5px; /* Улучшает читаемость */
+}
+
+/* Основные переменные цветов */
+:root {
+  /* Светлая тема (по умолчанию) */
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --card-bg: #fff;
+  --border-color: #ddd;
+  --accent-color: #4285f4;
+  --disabled-color: #ccc;
+  --header-color: #2c3e50;
+  --description-color: #555;
+  --memory-bg: #bcccfa;
+  --bonus-bg: #f8f8f8;
+  --buff-bg: #f0f0f0;
+  --buff-border: #4CAF50;
+  --total-bg: #ffffff; /* Было #fffaf0 (кремовый), стало чисто белый */
+  --scale-bg: #e0e0e0;
+  --scale-hover: #d0d0d0;
+  --scale-active: #4CAF50;
+  --scale-active-border: #388E3C;
+  --scale-disabled: #f5f5f5;
+}
+
+/* Тёмная тема */
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --card-bg: #2d2d2d;
+  --border-color: #444;
+  --accent-color: #5e97f6;
+  --disabled-color: #555;
+  --header-color: #a0c4ff;
+  --description-color: #bbb;
+  --memory-bg: #1e3a8a;
+  --bonus-bg: #333;
+  --buff-bg: #3a3a3a;
+  --buff-border: #5e97f6;
+  --total-bg: #2d2d2d; /* Было #3a2e05 (тёмно-коричневый), стало как card-bg */
+  --scale-bg: #444;
+  --scale-hover: #555;
+  --scale-active: #5e97f6;
+  --scale-active-border: #3a6fd5;
+  --scale-disabled: #333;
+}
+
+/* Стили для ссылки на Discord */
+.discord-link-container {
+  margin: 5px 0 15px;
+  text-align: center;
+}
+
+.discord-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: rgba(114, 137, 218, 0.1);
+  transition: all 0.2s ease;
+}
+
+.discord-link:hover {
+  background-color: rgba(114, 137, 218, 0.2);
+  text-decoration: underline;
+}
+
+.discord-link img {
+  vertical-align: middle;
+}
+
+/* Для темной темы */
+[data-theme="dark"] .discord-link {
+  color: #7289da;
+}
+
+/* Контейнер калькулятора */
+.calculator {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid var(--border-color);
+}
+
+/* Шапка с выбором расы */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  margin-top: 0;
+  color: var(--header-color);
+}
+
+#race {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin: 10px 0;
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+#raceDescription {
+  font-style: italic;
+  color: var(--description-color);
+  min-height: 20px;
+}
+
+/* Расположение колонок */
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background: var(--card-bg);
+}
+
+/* Блок с памятью */
+.memory-display {
+  padding: 10px;
+  background: var(--memory-bg);
+  border-radius: 4px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Стили для навыков и брони */
+.skill, .armor-part {
+  margin-bottom: 15px;
+  padding: 10px;
+  background: var(--card-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.skill h3, .armor-part h3 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+/* Шкалы выбора */
+.scale-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.scale-point {
+  padding: 8px 12px;
+  background: var(--scale-bg);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 80px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.scale-point:hover {
+  background: var(--scale-hover);
+}
+
+.scale-point.active {
+  background: var(--scale-active);
+  color: white;
+  border-color: var(--scale-active-border);
+}
+
+.scale-point.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--scale-disabled);
+}
+
+/* Блоки с итогами */
+.total-armor, .armor-cost {
+  margin-top: 15px;
+  padding: 8px;
+  background: var(--total-bg);
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.race-bonus, .defense {
+  margin: 10px 0;
+  padding: 8px;
+  background: var(--bonus-bg);
+  border-radius: 4px;
+}
+
+/* Список баффов */
+#buffsList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+#buffsList li {
+  padding: 8px;
+  margin: 5px 0;
+  background: var(--buff-bg);
+  border-radius: 4px;
+  border-left: 3px solid var(--buff-border);
+  color: var(--text-color);
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.9;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  
+  .column {
+    margin-bottom: 15px;
+  }
+  
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 20px;
+  }
+}
+
+/* Добавляем в существующие стили */
+.crafts {
+  margin: 15px 0;
+}
+
+.crafts h3 {
+  margin-bottom: 8px;
+}
+
+#craftsList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 5px;
+}
+
+#craftsList li {
+  padding: 8px;
+  margin: 5px 0;
+  background: var(--bonus-bg);
+  border-radius: 4px;
+  border-left: 3px solid var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Стили для списка навыков */
+#skillsList {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: var(--card-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  min-height: 60px; /* Фиксированная высота */
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  gap: 10px;
+}
+
+.skill h3 {
+  margin: 0;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0; /* Важно для работы ellipsis */
+}
+
+.scale-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.scale-point {
+  padding: 4px 6px;
+  font-size: 18px;
+  min-width: 40px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.scale-point.none-point {
+  min-width: 20px;
+  padding: 4px;
+}
+
+.calculator {
+  padding: 10px;
+}
+
+.layout {
+  gap: 10px;
+}
+
+.column {
+  padding: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.memory-display {
+  padding: 6px;
+  font-size: 20px;
+}
+
+/* Стили для расовых крафтов */
+.armor-part .scale-point.race-craft {
+  border: 2px solid gold;
+}
+
+.armor-part .scale-point.race-craft.active {
+  background-color: gold;
+  color: #333;
+}
+
+.armor-part .scale-point.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--disabled-color);
+}
+
+.craft-description {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* Стили для списка крафтов */
+#craftsList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+#craftsList h3 {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.craft-item {
+  padding: 8px 12px;
+  margin: 5px 0;
+  background-color: var(--card-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.craft-name {
+  cursor: help;
+  position: relative;
+}
+
+/* Стили для tooltip */
+.craft-name:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  z-index: 100;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+/* Стили для списка крафтов */
+#craftsList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+#craftsList h3 {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.craft-item {
+  padding: 8px 12px;
+  margin: 5px 0;
+  background-color: var(--card-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  cursor: help; /* Изменяем курсор при наведении */
+}
+
+/* Убираем стандартный tooltip и добавляем красивый */
+.craft-item {
+  position: relative;
+}
+
+.craft-item:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1.2em;
+  white-space: nowrap;
+  z-index: 100;
+  min-width: 200px;
+}
+
+/* Общие стили для tooltip'ов (и крафтов, и навыков) */
+.skill-tooltip, .craft-tooltip {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  z-index: 100;
+  min-width: 250px;
+  max-width: 300px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translateY(10px);
+}
+
+.skill:hover .skill-tooltip, 
+.craft-item:hover .craft-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Специфичные стили для навыков */
+.skill {
+  position: relative; /* Необходимо для позиционирования tooltip */
+}
+
+.skill-tooltip {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.skill-tooltip h4 {
+  margin-top: 0;
+  color: #ffcc00;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.skill-tooltip p {
+  margin: 8px 0;
+}
+
+.skill-tooltip .level-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #555;
+}
+
+/* Стили для подсказок уровней навыков */
+.scale-point {
+  position: relative;
+}
+
+.scale-point:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tooltip-bg, rgba(0, 0, 0, 0.9));
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 100px;
+  text-align: center;
+  z-index: 100;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scale-point:hover::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--tooltip-bg, rgba(0, 0, 0, 0.9)) transparent transparent transparent;
+  z-index: 101;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scale-point:hover::after,
+.scale-point:hover::before {
+  opacity: 1;
+}
+
+/* Для темной темы */
+[data-theme="dark"] {
+  --tooltip-bg: #2d2d2d;
+}
+
+/* Стили для подсказок уровней навыков */
+.scale-point {
+  position: relative;
+}
+
+.scale-point:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px); /* Уменьшил отступ */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tooltip-bg, rgba(0, 0, 0, 0.92)); /* Чуть темнее */
+  color: white;
+  padding: 6px 10px; /* Уменьшил padding */
+  border-radius: 3px; /* Меньше скругление */
+  font-size: 15px; /* Увеличил шрифт */
+  min-width: 80px; /* Уменьшил минимальную ширину */
+  text-align: center;
+  z-index: 100;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15); /* Более тонкая тень */
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  border: 1px solid rgba(255,255,255,0.1); /* Тонкая рамка */
+}
+
+.scale-point:hover::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 1px); /* Ближе к подсказке */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px; /* Уменьшил размер стрелки */
+  border-style: solid;
+  border-color: var(--tooltip-bg, rgba(0, 0, 0, 0.92)) transparent transparent transparent;
+  z-index: 101;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.scale-point:hover::after,
+.scale-point:hover::before {
+  opacity: 1;
+}
+
+/* Для темной темы */
+[data-theme="dark"] {
+  --tooltip-bg: #252525; /* Чуть светлее для контраста */
+}
+
+
+.craft-item:hover::after,
+.craft-item:hover::before {
+  opacity: 1;
+}
+
+button, select, input, textarea {
+  font-family: 'Pelagiad', serif;
+}
+
+.skills-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.reset-button {
+  padding: 5px 10px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Pelagiad', serif;
+  transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: #cc0000;
+}
+
+[data-theme="dark"] .reset-button {
+  background-color: #ff6666;
+}
+
+[data-theme="dark"] .reset-button:hover {
+  background-color: #ff3333;
+}
+
+/* Переопределяем существующие .layout и .column */
+.layout {
+  display: grid !important;
+  grid-template-columns: 2fr 1.3fr 0.9fr !important;
+  gap: 15px !important;
+  width: 100% !important;
+}
+
+.layout > .column {
+  width: auto !important; 
+  min-width: 0 !important; /* Фикс для переполнения текста */
+}
+
+#skillsColumn {
+  grid-column: 1;
+}
+
+#armorColumn {
+  grid-column: 2;
+}
+
+#resultsColumn {
+  grid-column: 3;
+}
+
+/* Убираем старый контейнер */
+.discord-link-container {
+  display: none;
+}
+
+/* Новая стильная кнопка Discord */
+.discord-fixed {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.discord-fixed a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #5865F2; /* Официальный цвет Discord */
+  border-radius: 6px;
+  color: white !important;
+  text-decoration: none;
+  font-family: 'Pelagiad', serif;
+  font-size: 18px; /* Увеличили шрифт */
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(88, 101, 242, 0.3);
+  transition: all 0.2s ease;
+  transform: scale(1.1); /* Увеличиваем на 30% */
+}
+
+.discord-fixed a:hover {
+  background: #4752C4;
+  transform: scale(1.12);
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
+
+.discord-fixed img {
+  width: 24px; /* Увеличили иконку */
+  height: 24px;
+  filter: brightness(2);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .discord-fixed {
+    top: 15px;
+    left: 15px;
+  }
+  .discord-fixed a {
+    padding: 8px 12px;
+    font-size: 16px;
+    transform: scale(1.2); /* Чуть меньше на мобильных */
+  }
+  .discord-fixed span {
+    display: inline; /* Теперь текст виден и на мобильных */
+  }
+}
+
+/* Для тёмной темы */
+[data-theme="dark"] .discord-fixed a {
+  background: #5865F2;
+  color: white !important;
+}
+
+[data-theme="dark"] .discord-fixed a:hover {
+  background: #4752C4;
+}
+
+/* Добавьте в CSS */
+.site-footer {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  padding: 8px 12px;
+  background-color: var(--card-bg);
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--text-color);
+  z-index: 500;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 220px;
+  line-height: 1.4;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.site-footer:hover {
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] .site-footer {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Чтобы контент не перекрывался */
+.calculator {
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    bottom: 10px;
+    left: 10px;
+    font-size: 11px;
+    max-width: 180px;
+    padding: 6px 10px;
+  }
+}

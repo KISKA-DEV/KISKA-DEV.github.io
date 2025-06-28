@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%235865F2'/><text x='50' y='65' font-family='Arial' font-size='60' text-anchor='middle' fill='white'>S</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyMP PHB</title>
+  <!-- Предзагрузка шрифта -->
+  <link rel="preload" href="fonts/Pelagiad.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="discord-fixed">
+      <a href="https://discord.gg/4T6gusQBSN" target="_blank">
+        <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord">
+        <span>Библиотека вещей</span>
+      </a>
+    </div>
+    
+    <button class="theme-toggle" id="themeToggle">Тёмная тема</button>
+    
+    <div class="calculator">
+    <header>
+      <h1>Калькулятор персонажа SkyMP</h1>
+      <!-- Ссылка на Discord под заголовком -->
+      
+      <select id="race">
+        <option value="">-- Выберите расу --</option>
+      </select>
+      <p id="raceDescription"></p>
+      <div class="memory-display">
+        Доступно памяти: <span id="currentMemory">0</span>/<span id="maxMemory">0</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <div class="column" id="skillsColumn">
+        <h2>Навыки</h2>
+        <button id="resetSkills" class="reset-button">Сбросить</button>
+        <div id="skillsList"></div>
+      </div>
+      
+      <div class="column" id="armorColumn">
+        <h2>Броня</h2>
+        <div id="armorList"></div>
+        <div class="total-armor">
+          <strong>Сумма защиты:</strong> <span id="totalArmorValue">0</span>
+        </div>
+      </div>
+      
+      <div class="column" id="resultsColumn">
+        <h2>Итоги</h2>
+        <div class="defense">
+          <strong>Снижение урона:</strong> <span id="defensePercent">0%</span>
+        </div>
+        <div class="crafts">
+          <h3>Расовые крафты:</h3>
+          <ul id="craftsList"></ul>
+        </div>
+        <div class="buffs">
+          <h3>Навыки:</h3>
+          <ul id="buffsList"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <footer class="site-footer">
+  <div class="footer-content">
+    <p>Создано с ❤️ для SkyMP сообщества</p>
+    <p>© 2025 Игрок KISKA_DEV | Версия сайта 1.0</p>
+    <p>Данные обновлены на 28.06.2025</p>
+  </div>
+</footer>
+</body>
+</html>

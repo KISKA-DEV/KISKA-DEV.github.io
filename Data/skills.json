@@ -1,0 +1,376 @@
+{
+  "mining": {
+    "name": "Шахтер",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "fishing": {
+    "name": "Рыбак",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 70, "totalCost": 120, "buff": "-" },
+      "эксперт": { "cost": 90, "totalCost": 210, "buff": "-" },
+      "мастер": { "cost": 110, "totalCost": 320, "buff": "Можно выловить люторыбу." }
+    }
+  },
+  "trapping": {
+    "name": "Промысловик",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "hunting": {
+    "name": "Охотник",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 70, "totalCost": 120, "buff": "-" },
+      "эксперт": { "cost": 90, "totalCost": 210, "buff": "-" },
+      "мастер": { "cost": 110, "totalCost": 320, "buff": "-" }
+    }
+  },
+  "herbalism": {
+    "name": "Травник",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 70, "totalCost": 120, "buff": "-" },
+      "эксперт": { "cost": 90, "totalCost": 210, "buff": "-" },
+      "мастер": { "cost": 110, "totalCost": 320, "buff": "-" }
+    }
+  },
+  "lumberjacking": {
+    "name": "Лесоруб",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "beekeeping": {
+    "name": "Пчеловод",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "farming": {
+    "name": "Фермер",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "armorsmithing": {
+    "name": "Кузнец-бронник",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 280, "totalCost": 520, "buff": "Доступны расовые крафты." }
+    }
+  },
+  "weaponsmithing": {
+    "name": "Кузнец-оружейник",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 280, "totalCost": 520, "buff": "Доступны расовые крафты." }
+    }
+  },
+  "jewelcrafting": {
+    "name": "Ювелир",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "leatherworking": {
+    "name": "Кожевник",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "Доступны расовые крафты." }
+    }
+  },
+  "tailoring": {
+    "name": "Портной",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "Доступны расовые крафты." }
+    }
+  },
+  "carpentry": {
+    "name": "Плотник",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "Доступны расовые крафты." }
+    }
+  },
+  "brewing": {
+    "name": "Пивовар",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "cooking": {
+    "name": "Повар",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "daggers": {
+    "name": "Кинжалы",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "short_blades": {
+    "name": "Короткие клинки",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "one_handed_swords": {
+    "name": "Одноручные мечи",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "sabers": {
+    "name": "Сабли",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 280, "totalCost": 520, "buff": "-" }
+    }
+  },
+  "katanas": {
+    "name": "Катаны",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 280, "totalCost": 520, "buff": "-" }
+    }
+  },
+  "blunt_weapons": {
+    "name": "Дубинки, булавы",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "one_handed_axes": {
+    "name": "Одноруч. топоры",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "hammers": {
+    "name": "Молотки",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "archery": {
+    "name": "Луки и арбалеты",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "two_handed_swords": {
+    "name": "Двуручные мечи",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "nodachi": {
+    "name": "Нодачи",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 280, "totalCost": 520, "buff": "-" }
+    }
+  },
+  "poleaxes": {
+    "name": "Секиры",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "great_hammers": {
+    "name": "Большие молоты",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "war_staves": {
+    "name": "Боевые посохи",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "spears": {
+    "name": "Копья, трезубцы",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "polearms": {
+    "name": "Глефы, алебарды",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "light_armor": {
+    "name": "Легкая броня",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "мастер": { "cost": 80, "totalCost": 130, "buff": "Вы можете перекатываться." }
+    }
+  },
+  "heavy_armor": {
+    "name": "Тяжелая броня",
+    "levels": {
+      "ученик": { "cost": 80, "totalCost": 80, "buff": "-" },
+      "мастер": { "cost": 110, "totalCost": 190, "buff": "-" }
+    }
+  },
+  "blocking": {
+    "name": "Блокирование",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "alchemy": {
+    "name": "Алхимия",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 140, "totalCost": 380, "buff": "-" }
+    }
+  },
+  "sorcery": {
+    "name": "Колдовство",
+    "levels": {
+      "ученик": { "cost": 110, "totalCost": 110, "buff": "-" },
+      "адепт": { "cost": 180, "totalCost": 290, "buff": "-" },
+      "эксперт": { "cost": 250, "totalCost": 540, "buff": "-" },
+      "мастер": { "cost": 330, "totalCost": 870, "buff": "-" }
+    }
+  },
+  "enchanting": {
+    "name": "Зачарование",
+    "levels": {
+      "ученик": { "cost": 50, "totalCost": 50, "buff": "-" },
+      "адепт": { "cost": 80, "totalCost": 130, "buff": "-" },
+      "эксперт": { "cost": 110, "totalCost": 240, "buff": "-" },
+      "мастер": { "cost": 410, "totalCost": 650, "buff": "-" }
+    }
+  },
+  "alteration": {
+    "name": "Изменение",
+    "levels": {
+      "ученик": { "cost": 110, "totalCost": 110, "buff": "-" },
+      "адепт": { "cost": 180, "totalCost": 290, "buff": "-" },
+      "эксперт": { "cost": 250, "totalCost": 540, "buff": "-" },
+      "мастер": { "cost": 330, "totalCost": 870, "buff": "-" }
+    }
+  },
+  "illusion": {
+    "name": "Иллюзия",
+    "levels": {
+      "ученик": { "cost": 110, "totalCost": 110, "buff": "-" },
+      "адепт": { "cost": 180, "totalCost": 290, "buff": "-" },
+      "эксперт": { "cost": 250, "totalCost": 540, "buff": "-" },
+      "мастер": { "cost": 330, "totalCost": 870, "buff": "-" }
+    }
+  },
+  "restoration": {
+    "name": "Восстановление",
+    "levels": {
+      "ученик": { "cost": 110, "totalCost": 110, "buff": "-" },
+      "адепт": { "cost": 180, "totalCost": 290, "buff": "-" },
+      "эксперт": { "cost": 250, "totalCost": 540, "buff": "-" },
+      "мастер": { "cost": 330, "totalCost": 870, "buff": "-" }
+    }
+  },
+  "destruction": {
+    "name": "Разрушение",
+    "levels": {
+      "ученик": { "cost": 110, "totalCost": 110, "buff": "-" },
+      "адепт": { "cost": 180, "totalCost": 290, "buff": "-" },
+      "эксперт": { "cost": 250, "totalCost": 540, "buff": "-" },
+      "мастер": { "cost": 330, "totalCost": 870, "buff": "-" }
+    }
+  }
+}
