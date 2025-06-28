@@ -326,19 +326,24 @@ function selectSkill(skillId, levelKey) {
   // Если выбираем новый уровень (не клик по текущему)
   if (!level) return;
   
-  // Возвращаем память за предыдущий уровень (если был выбран)
-  if (selectedSkills[skillId]) {
-    currentMemory += skill.levels[selectedSkills[skillId]].totalCost;
+  // Получаем текущий уровень навыка (если он есть)
+  const currentLevelKey = selectedSkills[skillId];
+  const currentLevel = currentLevelKey ? skill.levels[currentLevelKey] : null;
+  
+  // Вычисляем стоимость текущего уровня (если он есть)
+  const currentCost = currentLevel ? currentLevel.totalCost : 0;
+  
+  // Вычисляем разницу в стоимости между новым и текущим уровнем
+  const costDifference = level.totalCost - currentCost;
+  
+  // Проверяем достаточно ли памяти для разницы
+  if (costDifference > currentMemory) {
+    return alert(`Недостаточно памяти! Нужно ${costDifference}, доступно ${currentMemory}`);
   }
   
-  // Проверяем достаточно ли памяти
-  if (level.totalCost > currentMemory) {
-    return alert(`Недостаточно памяти! Нужно ${level.totalCost}, доступно ${currentMemory}`);
-  }
-  
-  // Вычитаем стоимость
+  // Вычитаем только разницу
   selectedSkills[skillId] = levelKey;
-  currentMemory -= level.totalCost;
+  currentMemory -= costDifference;
   
   renderAll();
 }
