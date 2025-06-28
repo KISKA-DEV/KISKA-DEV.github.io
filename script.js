@@ -17,9 +17,9 @@ async function loadData() {
   try {
     initTheme();
     const [racesRes, skillsRes, armorRes] = await Promise.all([
-      fetch('./data/races.json'),
-      fetch('./data/skills.json'),
-      fetch('./data/armor.json')
+      fetch('./Data/races.json'),
+      fetch('./Data/skills.json'),
+      fetch('./Data/armor.json')
     ]);
     
     races = await racesRes.json();
