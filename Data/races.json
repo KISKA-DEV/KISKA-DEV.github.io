@@ -163,7 +163,7 @@
   },
   "old_man": {
     "name": "Старик",
-    "maxMemory": 1200,
+    "maxMemory": 1300,
     "description": "Опытный, но физически слабый персонаж",
     "crafts": {}
   },
