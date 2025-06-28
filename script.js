@@ -31,6 +31,7 @@ async function loadData() {
     console.error("Ошибка загрузки данных:", error);
   }
 }
+
 // Инициализация приложения
 function initApp() {
   const raceSelect = getElement('race');
