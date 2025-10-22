@@ -448,8 +448,8 @@ function calculateAndReplace() {
     return;
   }
   
-  // Расчет по формуле: ((investedExp / 2) + freeExp) / 2 + 150
-  const calculatedExp = ((investedExp / 2) + freeExp) / 2 + 150;
+  // Расчет по формуле: ((investedExp / 2) + freeExp) / 2
+  const calculatedExp = ((investedExp / 2) + freeExp) / 2;
   
   // Результат не может быть меньше 150
   const finalExp = Math.max(150, Math.round(calculatedExp));
@@ -499,4 +499,5 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.log('Some mini-calc elements not found');
   }
+
 });
