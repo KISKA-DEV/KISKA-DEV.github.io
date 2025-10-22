@@ -11,8 +11,8 @@
     "name": "Нагрудник",
     "levels": {
       "Сверхлёгкий": { "defense": 117, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 0 },
-      "Лёгкий": { "defense": 197, "spellCost": 11.5, "attackSpeed": 8, "movementSpeed": 6 },
-      "Тяжёлый": { "defense": 280, "spellCost": 23, "attackSpeed": 13, "movementSpeed": 9 }
+      "Лёгкий": { "defense": 197, "spellCost": 0, "attackSpeed": 8, "movementSpeed": 6 },
+      "Тяжёлый": { "defense": 280, "spellCost": 0, "attackSpeed": 13, "movementSpeed": 9 }
     }
   },
   "gloves": {
@@ -31,4 +31,5 @@
       "Тяжёлый": { "defense": 75, "spellCost": 23, "attackSpeed": 0, "movementSpeed": 4 }
     }
   }
+
 }
