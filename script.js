@@ -163,9 +163,13 @@ function renderSkills() {
   const container = getElement('skillsList');
   if (!container || !skills) return;
   
+  const maxMemory = selectedRace ? races[selectedRace].maxMemory : 0;
+  const spentMemory = maxMemory - currentMemory; // Простой расчет потраченной памяти
+  
   container.innerHTML = `
     <div class="memory-display">
-      Память: <span id="currentMemory">${currentMemory}</span>/<span id="maxMemory">${selectedRace ? races[selectedRace].maxMemory : 0}</span>
+      Память: <span id="currentMemory">${currentMemory}</span>/<span id="maxMemory">${maxMemory}</span>
+      <span class="spent-memory">Потрачено: ${spentMemory}</span>
     </div>
   `;
 
@@ -413,14 +417,6 @@ function initTheme() {
   }
 }
 
-// В конце файла, после всех функций, добавим:
-document.addEventListener('DOMContentLoaded', () => {
-  const resetButton = document.getElementById('resetSkills');
-  if (resetButton) {
-    resetButton.addEventListener('click', resetAllSkills);
-  }
-});
-
 function resetAllSkills() {
   if (!selectedRace) return;
   
@@ -436,5 +432,71 @@ function resetAllSkills() {
   renderAll();
 }
 
-// Запуск приложения
-document.addEventListener('DOMContentLoaded', loadData);
+function calculateAndReplace() {
+  const investedExpInput = document.getElementById('investedExp');
+  const freeExpInput = document.getElementById('freeExp');
+  const resultDiv = document.getElementById('expResult');
+  
+  console.log('Elements found:', { investedExpInput, freeExpInput, resultDiv });
+  
+  const investedExp = parseInt(investedExpInput.value) || 0;
+  const freeExp = parseInt(freeExpInput.value) || 0;
+  
+  if (investedExp === 0 && freeExp === 0) {
+    alert('Пожалуйста, введите значения опыта');
+    investedExpInput.focus();
+    return;
+  }
+  
+  // Расчет по формуле: ((investedExp / 2) + freeExp) / 2 + 150
+  const calculatedExp = ((investedExp / 2) + freeExp) / 2 + 150;
+  
+  // Результат не может быть меньше 150
+  const finalExp = Math.max(150, Math.round(calculatedExp));
+  
+  // Показываем результат
+  resultDiv.innerHTML = `
+    <div style="font-size: 14px; margin-bottom: 4px;">Итоговый опыт:</div>
+    <div style="font-size: 18px; color: var(--scale-active);">${finalExp.toLocaleString()}</div>
+  `;
+  
+  console.log('Calculation completed:', { investedExp, freeExp, finalExp });
+}
+
+// ЕДИНЫЙ обработчик загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+  // Загрузка данных и инициализация приложения
+  loadData();
+  
+  // Обработчик для кнопки сброса навыков
+  const resetButton = document.getElementById('resetSkills');
+  if (resetButton) {
+    resetButton.addEventListener('click', resetAllSkills);
+  }
+
+  // Обработчики для мини-калькулятора
+  const miniButton = document.getElementById('miniButton');
+  const investedExpInput = document.getElementById('investedExp');
+  const freeExpInput = document.getElementById('freeExp');
+  
+  console.log('Mini-calc elements:', { miniButton, investedExpInput, freeExpInput });
+  
+  if (miniButton && investedExpInput && freeExpInput) {
+    miniButton.addEventListener('click', function() {
+      console.log('Mini button clicked!');
+      calculateAndReplace();
+    });
+    
+    // Обработка Enter в полях ввода
+    [investedExpInput, freeExpInput].forEach(input => {
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          console.log('Enter pressed in input');
+          calculateAndReplace();
+        }
+      });
+    });
+  } else {
+    console.log('Some mini-calc elements not found');
+  }
+});

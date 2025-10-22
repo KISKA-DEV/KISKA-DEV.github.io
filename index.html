@@ -22,6 +22,7 @@
     <div class="calculator">
     <header>
       <h1>Калькулятор персонажа SkyMP</h1>
+
       <!-- Ссылка на Discord под заголовком -->
       
       <select id="race">
@@ -32,6 +33,16 @@
         Доступно памяти: <span id="currentMemory">0</span>/<span id="maxMemory">0</span>
       </div>
     </header>
+
+      <div class="mini-calculator">
+        <h3 class="mini-calc-title">Опыт после смерти:</h3>
+        <div class="exp-inputs">
+          <input type="number" id="investedExp" placeholder="Вложенный опыт - тот, что вы потратили на навыки">
+          <input type="number" id="freeExp" placeholder="Свободный опыт">
+        </div>
+        <button id="miniButton" class="mini-calc-btn">РПК!</button>
+        <div id="expResult" class="exp-result"></div>
+      </div>
 
     <div class="layout">
       <div class="column" id="skillsColumn">
@@ -69,8 +80,8 @@
   <footer class="site-footer">
   <div class="footer-content">
     <p>Создано с ❤️ для SkyMP сообщества</p>
-    <p>© 2025 Игрок KISKA_DEV | Версия сайта 1.1</p>
-    <p>Данные обновлены на 28.06.2025</p>
+    <p>© 2025 Игрок KISKA_DEV | Версия сайта 1.2</p>
+    <p>Данные обновлены на 22.10.2025</p>
   </div>
 </footer>
 </body>
