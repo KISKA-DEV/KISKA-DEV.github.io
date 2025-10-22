@@ -2,33 +2,33 @@
   "head": {
     "name": "Шлем",
     "levels": {
-      "Сверхлёгкий": { "defense": 0 },
-      "Лёгкий": { "defense": 58 },
-      "Тяжёлый": { "defense": 75 }
+      "Сверхлёгкий": { "defense": 0, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 0 },
+      "Лёгкий": { "defense": 58, "spellCost": 11.5, "attackSpeed": 0, "movementSpeed": 2 },
+      "Тяжёлый": { "defense": 75, "spellCost": 23, "attackSpeed": 0, "movementSpeed": 4 }
     }
   },
   "chest": {
     "name": "Нагрудник",
     "levels": {
-      "Сверхлёгкий": { "defense": 117 },
-      "Лёгкий": { "defense": 197 },
-      "Тяжёлый": { "defense": 280 }
+      "Сверхлёгкий": { "defense": 117, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 0 },
+      "Лёгкий": { "defense": 197, "spellCost": 11.5, "attackSpeed": 8, "movementSpeed": 6 },
+      "Тяжёлый": { "defense": 280, "spellCost": 23, "attackSpeed": 13, "movementSpeed": 9 }
     }
   },
   "gloves": {
     "name": "Перчатки",
     "levels": {
-      "Сверхлёгкий": { "defense": 0 },
-      "Лёгкий": { "defense": 58 },
-      "Тяжёлый": { "defense": 75 }
+      "Сверхлёгкий": { "defense": 0, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 0 },
+      "Лёгкий": { "defense": 58, "spellCost": 11.5, "attackSpeed": 0, "movementSpeed": 2 },
+      "Тяжёлый": { "defense": 75, "spellCost": 23, "attackSpeed": 0, "movementSpeed": 4 }
     }
   },
   "boots": {
     "name": "Сапоги",
     "levels": {
-      "Сверхлёгкий": { "defense": 0 },
-      "Лёгкий": { "defense": 58 },
-      "Тяжёлый": { "defense": 75 }
+      "Сверхлёгкий": { "defense": 0, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 0 },
+      "Лёгкий": { "defense": 58, "spellCost": 11.5, "attackSpeed": 0, "movementSpeed": 2 },
+      "Тяжёлый": { "defense": 75, "spellCost": 23, "attackSpeed": 0, "movementSpeed": 4 }
     }
   }
 }

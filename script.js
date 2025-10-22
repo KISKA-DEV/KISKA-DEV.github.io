@@ -58,7 +58,7 @@ function updateRace(e) {
   
   currentMemory = races[selectedRace].maxMemory;
   selectedSkills = {};
-  selectedArmor = {};
+  // selectedArmor = {};
   
   // Обновляем описание расы
   const raceDescElement = getElement('raceDescription');
@@ -71,30 +71,60 @@ function updateRace(e) {
 }
 
 function calculateResults() {
-  if (!selectedRace) return;
-  
-  let totalDefense = 0;
-  
-  // Расчет брони (только сумма защиты)
-  for (const partId in armor) {
-    if (selectedArmor[partId]) {
-      const level = armor[partId].levels[selectedArmor[partId]];
-      if (!level) continue;
-      totalDefense += level.defense || 0;
+    let totalDefense = 0;
+    let totalSpellCost = 0;
+    let totalAttackSpeed = 0;
+    let totalMovementSpeed = 0;
+    
+    // Расчет брони и характеристик
+    for (const partId in armor) {
+        if (selectedArmor[partId]) {
+            const level = armor[partId].levels[selectedArmor[partId]];
+            if (!level) continue;
+            totalDefense += level.defense || 0;
+            totalSpellCost += level.spellCost || 0;
+            totalAttackSpeed += level.attackSpeed || 0;
+            totalMovementSpeed += level.movementSpeed || 0;
+        }
     }
-  }
-  
-  // Рассчитываем процент защиты (сумма брони * 0.12)
-  const defensePercent = Math.min(totalDefense * 0.12, 100);
-  
-  // Обновление интерфейса
-  getElement('totalArmorValue').textContent = totalDefense;
-  getElement('defensePercent').textContent = `${defensePercent.toFixed(1)}%`;
-  getElement('currentMemory').textContent = currentMemory;
-  getElement('maxMemory').textContent = races[selectedRace].maxMemory;
-  
-  updateCrafts();
-  updateBuffs();
+    
+    // Рассчитываем процент защиты (сумма брони * 0.12)
+    const defensePercent = Math.min(totalDefense * 0.12, 100);
+    
+    // Обновление интерфейса
+    getElement('totalArmorValue').textContent = totalDefense;
+    getElement('defensePercent').textContent = `${defensePercent.toFixed(1)}%`;
+    
+    // Обновляем стоимость заклинаний
+    const spellCostElement = getElement('totalSpellCost');
+    if (spellCostElement) {
+        spellCostElement.textContent = totalSpellCost;
+    }
+    
+    // Обновляем скорость атаки
+    const attackSpeedElement = getElement('totalAttackSpeed');
+    if (attackSpeedElement) {
+        attackSpeedElement.textContent = totalAttackSpeed;
+    }
+    
+    // Обновляем скорость движения
+    const movementSpeedElement = getElement('totalMovementSpeed');
+    if (movementSpeedElement) {
+        movementSpeedElement.textContent = totalMovementSpeed;
+    }
+    
+    // Обновляем память через отдельную функцию
+    updateMemoryDisplay();
+    
+    updateCrafts();
+    updateBuffs();
+}
+
+// Функция для форматирования значения скорости (добавляет знак + для положительных)
+function formatSpeedValue(value) {
+    if (value > 0) return `+${value}`;
+    if (value < 0) return value.toString();
+    return "0";
 }
 
 // Обновление списка баффов
@@ -163,15 +193,8 @@ function renderSkills() {
   const container = getElement('skillsList');
   if (!container || !skills) return;
   
-  const maxMemory = selectedRace ? races[selectedRace].maxMemory : 0;
-  const spentMemory = maxMemory - currentMemory; // Простой расчет потраченной памяти
-  
-  container.innerHTML = `
-    <div class="memory-display">
-      Память: <span id="currentMemory">${currentMemory}</span>/<span id="maxMemory">${maxMemory}</span>
-      <span class="spent-memory">Потрачено: ${spentMemory}</span>
-    </div>
-  `;
+  // Просто очищаем контейнер, не создавая memory-display
+  container.innerHTML = '';
 
   for (const skillId in skills) {
     const skill = skills[skillId];
@@ -213,22 +236,24 @@ function renderSkills() {
         point.classList.add('active');
       }
       
-      // Проверяем доступность уровня
+      // Проверяем доступность уровня - если раса не выбрана, все уровни недоступны
       const levelCost = skill.levels[levelKey].totalCost;
       const isCurrentSkill = selectedSkills[skillId] === levelKey;
       const isOtherSkillSelected = selectedSkills[skillId] && !isCurrentSkill;
       
-      // Рассчитываем доступную память с учетом текущего выбранного уровня
-      let availableMemory = currentMemory;
-      if (isOtherSkillSelected) {
-        availableMemory += skill.levels[selectedSkills[skillId]].totalCost;
-      }
-      
-      // Уровень недоступен если:
-      // 1. Не выбран текущий уровень И
-      // 2. (Не хватает памяти с учетом освобождения текущего уровня ИЛИ выбран другой уровень этого навыка)
-      if (!isCurrentSkill && (levelCost > availableMemory)) {
+      // Если раса не выбрана, делаем все уровни недоступными (кроме уже выбранных)
+      if (!selectedRace && !isCurrentSkill) {
         point.classList.add('disabled');
+      } else if (selectedRace) {
+        // Старая логика доступности для случая, когда раса выбрана
+        let availableMemory = currentMemory;
+        if (isOtherSkillSelected) {
+          availableMemory += skill.levels[selectedSkills[skillId]].totalCost;
+        }
+        
+        if (!isCurrentSkill && (levelCost > availableMemory)) {
+          point.classList.add('disabled');
+        }
       }
       
       const levelShort = {
@@ -248,6 +273,23 @@ function renderSkills() {
     skillDiv.appendChild(headerDiv);
     container.appendChild(skillDiv);
   }
+  
+  // Обновляем память в отдельном блоке (который теперь в HTML)
+  updateMemoryDisplay();
+}
+
+// Функция для обновления отображения памяти
+function updateMemoryDisplay() {
+  const maxMemory = selectedRace ? races[selectedRace].maxMemory : 0;
+  const spentMemory = maxMemory - currentMemory;
+  
+  const currentMemoryElement = getElement('currentMemory');
+  const maxMemoryElement = getElement('maxMemory');
+  const spentMemoryElement = document.querySelector('.spent-memory');
+  
+  if (currentMemoryElement) currentMemoryElement.textContent = currentMemory;
+  if (maxMemoryElement) maxMemoryElement.textContent = maxMemory;
+  if (spentMemoryElement) spentMemoryElement.textContent = `Потрачено: ${spentMemory}`;
 }
 
 function renderArmor() {
@@ -353,7 +395,8 @@ function selectSkill(skillId, levelKey) {
 }
 
 function selectArmor(partId, levelKey) {
-  if (!selectedRace) return alert('Сначала выберите расу!');
+
+  // if (!selectedRace) return alert('Сначала выберите расу!');
   
   const part = armor[partId];
   if (!part.levels[levelKey]) return;
