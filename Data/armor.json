@@ -10,7 +10,7 @@
   "chest": {
     "name": "Нагрудник",
     "levels": {
-      "Сверхлёгкий": { "defense": 117, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 0 },
+      "Сверхлёгкий": { "defense": 117, "spellCost": 0, "attackSpeed": 0, "movementSpeed": 2 },
       "Лёгкий": { "defense": 197, "spellCost": 0, "attackSpeed": 8, "movementSpeed": 6 },
       "Тяжёлый": { "defense": 280, "spellCost": 0, "attackSpeed": 13, "movementSpeed": 9 }
     }
@@ -33,3 +33,4 @@
   }
 
 }
+
