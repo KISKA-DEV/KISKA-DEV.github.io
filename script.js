@@ -72,9 +72,9 @@ function updateRace(e) {
 
 function calculateResults() {
     let totalDefense = 0;
-    let totalSpellCost = 0;
-    let totalAttackSpeed = 0;
-    let totalMovementSpeed = 0;
+    let totalSpellCost = 100;
+    let totalAttackSpeed = 100;
+    let totalMovementSpeed = 100;
     
     // Расчет брони и характеристик
     for (const partId in armor) {
@@ -83,8 +83,8 @@ function calculateResults() {
             if (!level) continue;
             totalDefense += level.defense || 0;
             totalSpellCost += level.spellCost || 0;
-            totalAttackSpeed += level.attackSpeed || 0;
-            totalMovementSpeed += level.movementSpeed || 0;
+            totalAttackSpeed -= level.attackSpeed || 0;
+            totalMovementSpeed -= level.movementSpeed || 0;
         }
     }
     
