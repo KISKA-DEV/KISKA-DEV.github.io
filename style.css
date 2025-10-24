@@ -1025,3 +1025,35 @@ header {
     background: var(--bonus-bg);
     border-radius: 4px;
 }
+
+.license-footer {
+  font-size: 0.9em;
+  color: var(--description-color);
+  margin-top: 2em;
+  padding: 1em 0;
+  border-top: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.license-footer a {
+  color: var(--scale-active); /* Зеленый в светлой теме, синий в темной */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.license-footer a:hover {
+  color: var(--scale-active-border); /* Темно-зеленый в светлой, синий в темной */
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .license-footer a {
+  color: var(--accent-color);
+  text-shadow: 0 0 1px rgba(94, 151, 246, 0.3);
+}
+
+[data-theme="dark"] .license-footer a:hover {
+  color: var(--accent-hover);
+  text-shadow: 0 0 2px rgba(122, 163, 255, 0.5);
+}
